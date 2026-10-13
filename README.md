@@ -1,1 +1,0 @@
-# krxziol.github.io
