@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBloom | Retro Tech Musings</title>
+    <style>
+        /* Base styles with retro aesthetic */
+        @import url('https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&family=Lucida+Console:wght@400;700&display=swap');
+        
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #00ffaa;
+            --accent-color: #ff00ff;
+            --border-color: #003366;
+            --code-bg: #000000;
+            --code-text: #00ffaa;
+            --button-bg: #003366;
+            --button-hover: #001133;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', 'Lucida Console', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header with terminal-inspired design */
+        header {
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .date {
+            font-size: 0.8rem;
+            color: #00ffaa;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        /* Navigation bar */
+        nav {
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            border-bottom: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+        
+        /* Main content */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .post {
+            background-color: #000000;
+            border: 1px solid var(--border-color);
+            border-radius: 0;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+        }
+        
+        .post-meta {
+            font-size: 0.8rem;
+            color: #00ffaa;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .post-content {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        /* Code blocks with 80s terminal look */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid #003366;
+            border-radius: 0;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            color: var(--code-text);
+            font-size: 0.9rem;
+        }
+        
+        pre code {
+            font-size: inherit;
+            padding: 0;
+            background: none;
+            color: inherit;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000000;
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem;
+            text-align: center;
+            color: #00ffaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Button styles */
+        .btn {
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+        }
+        
+        /* Typing animation effect */
+        .typing {
+            position: relative;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .typing::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            .post {
+                padding: 1rem;
+            }
+        }
+        
+        /* Typing animation for the blog title */
+        .typewriter {
+            position: relative;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
+        
+        .typewriter::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            margin-left: 0.5rem;
+        }
+        
+        /* Add some old-school "glitch" effect to text */
+        .glitch {
+            position: relative;
+            color: var(--accent-color);
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        }
+        
+        .glitch::before {
+            content: attr(data-glitch);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+            font-size: 100%;
+            transform: translateX(-50%);
+            animation: glitch-move 2s infinite;
+        }
+        
+        @keyframes glitch-move {
+            0% { transform: translateX(-50%) translateY(0); }
+            25% { transform: translateX(-40%) translateY(-5px); }
+            50% { transform: translateX(-60%) translateY(3px); }
+            75% { transform: translateX(-30%) translateY(-2px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+        
+        /* Add subtle terminal cursor at the end of lines */
+        .terminal-line::after {
+            content: '>';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-left: 10px;
+            animation: cursor-pulse 1s step-end infinite;
+        }
+        
+        @keyframes cursor-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Add a subtle background grid for the retro look */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 255, 170, 0.05) 0%, rgba(255, 0, 255, 0.03) 10%, rgba(0, 0, 0, 0.1) 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Add a faint CRT-style scanline background */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.02) 1px, rgba(0, 0, 0, 0.02) 2px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        /* Add a subtle fade-in effect for posts */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Add a border to the blog title */
+        .blog-title {
+            position: relative;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Add a small terminal prompt at the top of each post */
+        .prompt {
+            font-size: 0.8rem;
+            color: #00ffaa;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        
+        /* Add a subtle highlight to the featured post */
+        .featured-post {
+            border-left: 5px solid var(--accent-color);
+            margin-left: 1rem;
+            padding-left: 1rem;
+            background-color: rgba(255, 0, 255, 0.05);
+        }
+        
+        /* Add a small "diskette" icon for the blog title */
+        .diskette {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="terminal-header">
+            <div class="logo diskette">BYTEBLOOM</div>
+            <div class="date">Wed, 05 Nov 2024 | 14:32:00 UTC</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Archive</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="blog-title">
+            <h1 class="typewriter" data-glitch="BYTEBLOOM">BYTEBLOOM</h1>
+            <p class="prompt">Terminal: ~$</p>
+        </section>
+        
+        <article class="post featured-post fade-in">
+            <h2 class="post-title">The Last Days of the 80s Arcade</h2>
+            <p class="post-meta">Posted on Nov 4, 2024 • 12 min read</p>
+            
+            <div class="post-content">
+                <p>Remember the smell of hot plastic and the crackle of the CRT? In the summer of 1987, I spent a week at the <code>ElectroPlex Arcade</code> in downtown San Francisco. The place was packed with kids who wore pixelated jackets and spoke in 8-bit English. I remember the <code>Galaga</code> cabinet had a blinking red indicator that said "READY" in block letters.</p>
+                
+                <pre><code>SYSTEM: ELECTROPLEX V1.0
+CPU: Z80A @ 4.77MHz
+RAM: 64KB
+VIDEO: NTSC 256x240
+STATUS: ONLINE
+[SYSTEM CHECK: ALL SYSTEMS GO]
+</code></pre>
+                
+                <p>During that week, I discovered a hidden backdoor in the <code>Dragon Slayer</code> ROM. By modifying the jump table, I could trigger a secret level that wasn't listed in the instruction manual. The game would then display a message in ASCII art:</p>
+                
+                <pre><code>╔══════════════════════════════╗
+║  WARNING: SYSTEM HACK DETECTED ║
+║  YOU HAVE ACCESS TO ADMIN MODE  ║
+║  PLEASE DISCONNECT IMMEDIATELY  ║
+╚══════════════════════════════╝
+</code></pre>
+                
+                <p>Afterward, I never played that game again. The arcade owner said he'd "removed the anomaly" from the system. I suspect it was just a glitch in the ROM.</p>
+                
+                <p>Today, we don't have arcade cabinets. We have VR headsets and cloud gaming. But the nostalgia remains. The simplicity of those days - a single controller, a single screen, a single sound - created a unique form of human connection.</p>
+            </div>
+            
+            <button class="btn">Read More →</button>
+        </article>
+        
+        <article class="post fade-in">
+            <h2 class="post-title">Why I Still Use Floppy Disks</h2>
+            <p class="post-meta">Posted on Nov 2, 2024 • 8 min read</p>
+            
+            <div class="post-content">
+                <p>Floppy disks are dying. The cloud has replaced them. But I still use them for one reason: <strong>they don't sync.</strong></p>
+                
+                <p>When you save something to a floppy disk, it's there. It's not waiting in some remote data center. It's not vulnerable to a network outage. If your router dies, your laptop dies, and the internet is down for three weeks, your data is still on that floppy disk in your drawer.</p>
+                
+                <p>I keep a special collection of 5.25" and 3.5" disks in a locked drawer. Each one contains a different project: a homegrown text editor, a simple spreadsheet, a collection of poetry. I call this my "digital bunker."</p>
+                
+                <pre><code>DISK: POETRY_01_2024
+FORMAT: MS-DOS F3.0
+SIZE: 1.44MB
+CREATION DATE: 2024-11-01
+DESCRIPTION: Poems about rain, cities, and forgotten dreams.
+[DISK CHECK: GOOD]
+</code></pre>
+                
+                <p>Some people think this is silly. But I've seen the internet fail. I've seen data centers go dark. The reliability of a spinning disk in a drawer is more reliable than the promise of cloud availability.</p>
+            </div>
+            
+            <button class="btn">Read More →</button>
+        </article>
+        
+        <article class="post fade-in">
+            <h2 class="post-title">The Rise of the Keyboard Warrior</h2>
+            <p class="post-meta">Posted on Oct 30, 2024 • 15 min read</p>
+            
+            <div class="post-content">
+                <p>There was a time when keyboard warriors didn't have a voice. They were just the silent background hum of the computer. Now, they speak.</p>
+                
+                <p>Back in 1992, keyboard warriors were just the keys you pressed to navigate a DOS prompt. Today, they are the voices behind online arguments, the moderators of forums, the administrators of wikis. They are the ones who keep the digital world functioning.</p>
+                
+                <p>But there's a danger. The more we rely on keyboard warriors, the more we lose the ability to reason through complex arguments. We don't think; we type. We don't listen; we respond.</p>
+                
+                <pre><code>┌────────────────────────────────────┐
+│ USER: [REDACTED]                   │
+│ ACTION: POST                       │
+│ TARGET: /discussion/rainbow-hats  │
+│ CONTENT: "Rainbow hats are stupid."│
+└────────────────────────────────────┘
+</code></pre>
+                
+                <p>Perhaps the future of the keyboard warrior is not in argument, but in understanding. In learning to listen to the silence between the keys.</p>
+            </div>
+            
+            <button class="btn">Read More →</button>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 ByteBloom. All rights reserved. | <code>System status: ONLINE</code></p>
+        <p>Developed with <span style="color: #ff00ff;">♥</span> for retro tech enthusiasts</p>
+    </footer>
+</body>
+</html>
