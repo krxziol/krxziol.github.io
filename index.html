@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="En">
+    <head>
+        <meta charset="utf-8">
+        <title>music, IT &amp; everything blog</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <marquee behavior="scroll">
+         NOW TRANSMITTING: late-night music thoughts // hardware notes // music experiments // digital nostalgia // updates from my corner of the internet
+        </marquee>
+        <center>
+            <table class="main" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td colspan="3" class="header">
+                        <img src="./img/text.png" alt="Animated site header" id="textheader">
+                        
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="3" class="nav">
+                        <a href="#">HOME</a>
+                        <a href="#">ABOUT</a>
+                        <a href="#">GAMES</a>
+                        <a href="#">MUSIC</a>
+                        <a href="#">PICS</a>
+                        <a href="#">LINKS</a>
+                        <a href="#">GUESTBOOK</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="side">
+                        <h2>THE BLOG</h2>
+
+
+                        <a href="#latest-posts">» Latest posts</a><br>
+                        <a href="#about">» About me</a><br>
+                        <a href="#music">» Music notes</a><br>
+                        <a href="#tech">» IT adventures</a><br>
+                        <a href="#it">» Everything else on my mind</a><br>
+                        <a href="mailto:test@test.com">» Contact</a>
+                        <br><br>
+                        <img width="180" src="./gif/under.gif">
+                        <br>
+                        <h2>STATUS</h2>
+                        <img width="40" src="https://upload.wikimedia.org/wikipedia/commons/4/43/MSN_messenger_icon.png">
+                        <br>
+                        <p>Discord: krxziol</p>
+                        <p><span class="status-dot">●</span> DND / sleeping, at school, making music or just busy (I will still check requests and respond to them in free time!!)</p>
+                        <h2 style="width: 100%;">NOW PLAYING</h2>
+                        <div id="app" style="height: 340px; position: relative; margin-top: 40px;">
+                            <script type="module">
+                                import Webamp from "https://unpkg.com/webamp@^2";
+                                const webamp = new Webamp({
+                                  initialSkin: {
+                                   url: "https://archive.org/download/winampskin_Winamp_Vista_Classic/Winamp_Vista_Classic.wsz",
+                                  },
+                                 initialTracks: [
+                                 {
+                                    metaData: {
+                                      artist: "Fear The Clown",
+                                     title: "Anchor",
+                                     },
+                                     url: "http://127.0.0.1:3000/c:/Users/Kiziol/Documents/Fear The Clown - Anchor.mp3",
+                                 },
+                                {
+                                  metaData: {
+                                    artist: "ScKapegoat",
+                                   title: "Bher",
+                                 },
+                                 url: "http://127.0.0.1:3000/c:/Users/Kiziol/Documents/gowno.mp3",
+                                },
+                                  {
+                                   metaData: {
+                                    artist: "Glassjaw",
+                                    title: "Pretty Lush",
+                                  },
+                                  url: "http://127.0.0.1:3000/c:/Users/Kiziol/Documents/Pretty Lush.mp3",
+                                },
+                                ],
+                                 });
+                                 webamp.renderInto(document.getElementById("app")).then(() => {
+                                  webamp.play();})
+                            </script>
+                        </div>
+                        <br><br>
+                        <h2>VISITORS</h2>
+                        <div class="counter">
+                            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=3026353268bed958b5d1abe2701d25b805c982e3'></script>
+                            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1666922/t/3"></script>
+                        </div>
+                    </td>
+                    <td class="content">
+                        <h2 id="about">WELCOME TO MY CORNER OF THE WEB</h2>
+                        <img class="me" src="./img/pfp.png">
+                        <p class="intro">Hey, welcome to <b>my home page</b> — my personal blog about music, computers, tech, IT, and whatever rabbit hole I fall into after midnight. Think album thoughts, hardware tinkering, fashion digging, and assorted internet archaeology. Play something I've been addicted to on winamp and get reading!</p>
+                        <h2 id="latest-posts">LATEST POSTS / CURRENT OBSESSIONS</h2>
+                        <div class="blog-post">
+                            <div class="post-topline">ENTRY_001 // MUSIC REVIEW</div>
+                            <h3>Albums that sound better after midnight</h3>
+                            <p class="post-meta">14.10.2006 · listening notes · 4 min read</p>
+                            <p>Records I have been addicted to. Plenty of them considering, I am open minded when it comes to music and make it myself! Expect something soon..</p>
+                            <a href="#music">[ read entry » ]</a>
+                        </div>
+                        <div class="blog-post">
+                            <div class="post-topline">ENTRY_002 // MUSIC PRODUCTION</div>
+                            <h3>Something I have been working on....</h3>
+                            <p class="post-meta">14.10.2006 · emo / project</p>
+                            <p>Outside of my main krxziol project, I have been working on some <i>emooooooo!!! </i>That is coming soon too...</p>
+                            <a href="#tech">[ read entry » ]</a>
+                        </div>
+                        <div class="blog-post">
+                            <div class="post-topline">ENTRY_003 // IT LOG</div>
+                            <h3>Things I learned while breaking my setup</h3>
+                            <p class="post-meta">14.10.2006 · Javascript / learning</p>
+                            <p>Started Javascript at school. It's honestly the most anger inducing and boring language I have been learning...</p>
+                            <a href="#it">[ read entry » ]</a>
+                        </div>
+                        <div class="pics">
+                            <img src="./img/roblox.png">
+                            <img src="./img/minecraft.png">
+                        </div>
+                        <p class="post-meta">[ 14.10.2006 // PERSONAL LOG ]</p><p>Games still have a place here, but the main feed is for the things I'm listening to, doing, breaking, and learning. Expect informal notes rather than serious reviews.</p>
+                        <h2 id="tech">HARDWARE</h2>
+                        <img width="250" src="./img/komputer.jpg">
+                        <p>(not exactly my picture but I had the same PC before with Pentium 4 and Nvidia Geforce 7200-ish??? I don't remember anymore)<br><br>PC Setup:<br> CPU:AMD Ryzen 5 5500<br>GPU:Nvidia RTX 3060 12G<br>RAM: 16GB 3200Mhz<br>STORAGE: 1TB M.2 SSD, 240Gb SATA SSD, 80GB HDD<br><br>MUSIC:<br>Monitors: Adam Audio T5V<br>Headphones: Audio-Technica ATH M50X<br>Interface: Focusrite Scarlett Solo 3rd Gen Guitar:Epiphone SG Red Cherry, Ibanez GRX40<br>Keyboard: Akai MPK MINI<br>DJ:Behringer BCD3000, MC crypt analog sum console<br>AMP: Bugera 6262-212</p>
+                        <h2 id="music">MUSIC LOG</h2>
+                        <ul>
+                            <li>Genre's I have been on to..</li>
+                            <li>Nu metal / post-hardcore</li>
+                            <li>Screamo &amp; emo</li>
+                            <li>Shoegaze / noise pop</li>
+                            <li>Drum &amp; bass</li>
+                            <li>Electronic / house</li>
+                            <li>Rap / Hyperpop</li>
+                            <li>New sounds worth digging into</li>
+                            <li>Literally just anything at this point..</li>
+                        </ul>
+                        <h2 id="it">WEBRING</h2>
+                        <img src="https://caitsith.neocities.org/explorer.gif">
+                        <img src="https://cyber.dabamos.de/88x31/html.gif">
+                        <img src="https://cyber.dabamos.de/88x31/geocities.gif">
+                        <br><br>
+                        <img style ="width:285px;" src="https://media.tenor.com/P3CLzjGdvCwAAAAM/car.gif">
+                    </td>
+                    <td class="side">
+                        <h2>UPDATES</h2>
+                        <p>14/10/2006<br>Wrote the website, Fixed it aaaaand made it public using github!! Still needs a lot of work tho.. p_p</p>
+                        <h2>OLD WEB / LINKS</h2>
+                        <img width="88" src="https://cyber.dabamos.de/88x31/linuxnow.gif">
+                        <img width="88" src="https://cyber.dabamos.de/88x31/netscape.gif">
+                        <h2>DROP ME A LINE</h2>
+                        <a href="mailto:test@test.com">
+                            <img width="100" src="https://www.animatedimages.org/data/media/127/animated-email-image-0010.gif">
+                        </a>
+                        <h2>TERMINAL VIBES</h2>
+                        <img width="150" src="https://media.tenor.com/6f8mJx5R0zAAAAAC/matrix-code.gif">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="footer">
+                        <p>★ Coded with some internet help and notes from school★<br>Best viewed with headphones and 1024×768<br>© rawrin 2000s XD // personal blog</p>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

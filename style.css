@@ -1,0 +1,365 @@
+/* =========================================================
+   RAW R CORE — 2000s visual novel / personal homepage theme
+   Replace your existing style.css with this file.
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: #080916;
+}
+
+body {
+    margin: 0;
+    padding: 18px 10px 30px;
+    background-color: #080916;
+    background-image:
+        radial-gradient(ellipse at top, rgba(64, 47, 104, .28), transparent 65%),
+        url("./img/background.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    color: #d9d6ed;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+    cursor: url(https://www.rw-designer.com/cursor-download/204106/arrow.cur), default;
+}
+
+::selection {
+    color: #fff;
+    background: #8a6bbd;
+}
+
+.main {
+    width: 950px;
+    max-width: 100%;
+    margin: 12px auto;
+    background: #11111d;
+    border: 3px ridge #625879;
+    box-shadow: 0 0 0 1px #05050a, 0 0 28px rgba(133, 92, 184, .38);
+    border-spacing: 0;
+    table-layout: fixed;
+    opacity: 0.9;
+}
+
+.main td {
+    overflow-wrap: anywhere;
+}
+
+.header {
+    height: 155px;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    background:
+        linear-gradient(180deg, rgba(10, 8, 24, .12), rgba(10, 8, 24, .72)),
+        repeating-linear-gradient(0deg, #25203a 0, #25203a 2px, #211c34 2px, #211c34 4px);
+    border-bottom: 3px ridge #71608d;
+}
+
+/* Keep the existing animated header images, but prevent their huge
+   negative margins from pulling the rest of the page out of place. */
+.header img {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto !important;
+}
+
+.nav {
+    padding: 7px 5px;
+    text-align: center;
+    background: #211a31;
+    border-bottom: 3px ridge #67567f;
+    box-shadow: inset 0 1px #4a3c60;
+}
+
+.nav a {
+    display: inline-block;
+    margin: 2px 3px;
+    padding: 5px 11px;
+    color: #e3d5ff;
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-shadow: 1px 1px #100c1b;
+    background: linear-gradient(#49385f, #2a203c);
+    border: 2px outset #81709a;
+}
+
+.nav a:hover {
+    color: #fff;
+    background: linear-gradient(#7960a1, #4b376c);
+    border-style: inset;
+}
+
+.side {
+    width: 190px;
+    padding: 9px;
+    vertical-align: top;
+    background: #151321;
+    border-right: 1px solid #554768;
+}
+
+.content {
+    width: 550px;
+    padding: 12px 15px 20px;
+    vertical-align: top;
+    background:
+        linear-gradient(rgba(24, 21, 37, .96), rgba(18, 17, 30, .97)),
+        repeating-linear-gradient(0deg, transparent 0, transparent 22px, rgba(177, 151, 219, .025) 23px);
+}
+
+.side:last-child {
+    width: 190px;
+    border-right: 0;
+    border-left: 1px solid #554768;
+}
+
+h2 {
+    margin: 12px 0 10px;
+    padding: 5px 7px;
+    color: #eadfff;
+    font-size: 13px;
+    line-height: 1.35;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #59436f, #30263f 72%, #211a2c);
+    border: 1px outset #8a75a2;
+    border-bottom: 2px solid #9d7dc0;
+    text-shadow: 1px 1px #171020;
+}
+
+.side h2 {
+    font-size: 12px;
+}
+
+p {
+    margin: 9px 0 13px;
+}
+
+a {
+    color: #c6a9ff;
+    cursor: url(https://www.rw-designer.com/cursor-download/204110/link.cur), pointer;
+}
+
+a:hover {
+    color: #fff0b5;
+    text-decoration: underline;
+}
+
+.side a {
+    line-height: 1.9;
+}
+
+.me {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    padding: 3px;
+    float: left;
+    margin: 0 13px 8px 0;
+    border: 3px ridge #82709c;
+    background: #090810;
+}
+
+.divider {
+    display: block;
+    width: 100%;
+    height: 28px;
+    object-fit: contain;
+    margin: 22px 0;
+    clear: both;
+}
+
+.pics {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+}
+
+.pics img {
+    width: calc(50% - 5px);
+    height: 125px;
+    object-fit: cover;
+    padding: 3px;
+    background: #090810;
+    border: 3px ridge #82709c;
+}
+
+.counter {
+    padding: 8px 4px;
+    color: #bfffc5;
+    background: #05080b;
+    font-family: "Courier New", monospace;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+    border: 3px inset #777084;
+    box-shadow: inset 0 0 12px rgba(83, 173, 115, .12);
+}
+
+.footer {
+    padding: 14px;
+    color: #9a90ab;
+    font-size: 11px;
+    text-align: center;
+    background: #0c0b14;
+    border-top: 3px ridge #67567f;
+}
+
+ul {
+    padding-left: 24px;
+    line-height: 1.9;
+    list-style-type: square;
+}
+
+li::marker {
+    color: #a98bcf;
+}
+
+marquee {
+    display: block;
+    padding: 5px 0;
+    color: #d8c4ff;
+    font-weight: bold;
+    background: #171222;
+    border-top: 1px solid #574568;
+    border-bottom: 2px ridge #79638f;
+    text-shadow: 1px 1px #08060d;
+}
+
+/* The Winamp embed should stay inside the narrow sidebar. */
+#app {
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 12px !important;
+}
+
+/* Little old-web details */
+img {
+    image-rendering: auto;
+}
+
+.side img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 5px;
+    }
+
+    .main {
+        width: 100%;
+        table-layout: auto;
+    }
+
+    .main tr:nth-child(3) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main tr:nth-child(3) > td.side {
+        width: 50%;
+        flex: 1 1 45%;
+    }
+
+    .main tr:nth-child(3) > td.content {
+        width: 100%;
+        order: -1;
+        flex: 1 1 100%;
+    }
+
+    .header {
+        height: auto;
+    }
+
+    .header img {
+        height: auto;
+        max-height: 150px;
+    }
+
+    .nav a {
+        padding: 5px 7px;
+        margin: 2px 1px;
+    }
+
+    .pics img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 420px) {
+    .main tr:nth-child(3) > td.side {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .me {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+
+/* Personal blog additions */
+.intro {
+    min-height: 115px;
+}
+
+.blog-post {
+    margin: 12px 0 18px;
+    padding: 10px 12px 12px;
+    background: linear-gradient(135deg, rgba(43, 34, 60, .8), rgba(13, 12, 22, .9));
+    border: 2px ridge #6c587e;
+    box-shadow: inset 0 0 0 1px rgba(205, 180, 240, .05);
+}
+
+.blog-post h3 {
+    margin: 6px 0;
+    color: #eee1ff;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px #100b18;
+}
+
+.post-topline {
+    padding-bottom: 4px;
+    color: #bca0e0;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-bottom: 1px dotted #665477;
+}
+
+.post-meta {
+    color: #a69ab8;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+}
+
+.status-dot {
+    color: #ec1111;
+    text-shadow: 0 0 5px rgba(124, 219, 155, .5);
+}
+
+.blog-post a {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    background: #55416b;
+}
